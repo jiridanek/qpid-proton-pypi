@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [windows-latest]
         version: [3.7, 3.x]
     runs-on: ${{matrix.os}}
     steps:
@@ -21,4 +21,5 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: ${{matrix.version}}
-      - run: pip install -b C:/TMP python-qpid-proton
+      - run: pip install python-qpid-proton
+        working-directory: C:/
